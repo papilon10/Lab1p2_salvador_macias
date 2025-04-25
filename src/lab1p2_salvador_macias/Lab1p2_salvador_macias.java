@@ -59,7 +59,7 @@ public class Lab1p2_salvador_macias {
                                     if (numero_ingresado.matches("[1-6]{1,3}")) {
                                         historial_intento.add(numero_ingresado);
 
-                                        if (numeroAleatorio.contains(numero_ingresado)) {
+                                        if (numeroAleatorio.contentEquals(numero_ingresado)) {
                                             acierto = true;
                                             System.out.println("historial: ");
                                             for (int j = 0; j < historial_intento.size(); j++) {
@@ -80,7 +80,7 @@ public class Lab1p2_salvador_macias {
                         }// fin facil
                         break;
                         case 2: {
-                            while (acierto != true) {
+                           while (acierto != true) {
                                 Random aleatorio = new Random();
                                 StringBuilder sb = new StringBuilder();
 
@@ -97,7 +97,7 @@ public class Lab1p2_salvador_macias {
                                     if (numero_ingresado.matches("[1-8]{1,4}")) {
                                         historial_intento.add(numero_ingresado);
 
-                                        if (numeroAleatorio.contains(numero_ingresado)) {
+                                        if (numeroAleatorio.contentEquals(numero_ingresado)) {
                                             acierto = true;
                                             System.out.println("historial: ");
                                             for (int j = 0; j < historial_intento.size(); j++) {
@@ -106,10 +106,9 @@ public class Lab1p2_salvador_macias {
                                             }
 
                                         }
+
                                     } else {
-
                                         System.out.println("la longitud o el rango son invalidos");
-
                                     }
 
                                 }
@@ -119,17 +118,42 @@ public class Lab1p2_salvador_macias {
                         }//fin media
                         break;
                         case 3: {
-                            while (acierto != true) {
-                                for (int i = 0; i < 5; i++) {
+                           while (acierto != true) {
+                                Random aleatorio = new Random();
+                                StringBuilder sb = new StringBuilder();
+
+                                for (int y = 0; y < 5; y++) {
+                                    int digito = aleatorio.nextInt(9) + 1;
+                                    sb.append(digito);
+                                }
+
+                                String numeroAleatorio = sb.toString();
+                                System.out.println(numeroAleatorio);
+                                for (int i = 1; i < 6; i++) {
                                     System.out.println("intento numero :" + i);
+                                    String numero_ingresado = str.nextLine();
+                                    if (numero_ingresado.matches("[1-9]{1,5}")) {
+                                        historial_intento.add(numero_ingresado);
+
+                                        if (numeroAleatorio.contentEquals(numero_ingresado)) {
+                                            acierto = true;
+                                            System.out.println("historial: ");
+                                            for (int j = 0; j < historial_intento.size(); j++) {
+                                                System.out.println(historial_intento.get(j));
+
+                                            }
+
+                                        }
+
+                                    } else {
+                                        System.out.println("la longitud o el rango son invalidos");
+                                    }
+
                                 }
 
                             }
-
-                        }
-
-                    }//fin dificil
-
+                        }//fin dificil
+                    }
                     break;
 
                 }//fin case 1
