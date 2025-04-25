@@ -56,17 +56,23 @@ public class Lab1p2_salvador_macias {
                                 for (int i = 1; i < 9; i++) {
                                     System.out.println("intento numero :" + i);
                                     String numero_ingresado = str.nextLine();
-                                    historial_intento.add(numero_ingresado);
+                                    if (numero_ingresado.matches("[1-6]{1,3}")) {
+                                        historial_intento.add(numero_ingresado);
 
-                                    if (numeroAleatorio.contains(numero_ingresado)) {
-                                        acierto=true;
-                                        System.out.println("historial: ");
-                                        for (int j = 0; j < historial_intento.size(); j++) {
-                                            System.out.println(historial_intento.get(j));
+                                        if (numeroAleatorio.contains(numero_ingresado)) {
+                                            acierto = true;
+                                            System.out.println("historial: ");
+                                            for (int j = 0; j < historial_intento.size(); j++) {
+                                                System.out.println(historial_intento.get(j));
+
+                                            }
 
                                         }
 
+                                    } else {
+                                        System.out.println("la longitud o el rango son invalidos");
                                     }
+
                                 }
 
                             }
@@ -75,8 +81,36 @@ public class Lab1p2_salvador_macias {
                         break;
                         case 2: {
                             while (acierto != true) {
-                                for (int i = 0; i < 6; i++) {
+                                Random aleatorio = new Random();
+                                StringBuilder sb = new StringBuilder();
+
+                                for (int y = 0; y < 4; y++) {
+                                    int digito = aleatorio.nextInt(8) + 1;
+                                    sb.append(digito);
+                                }
+
+                                String numeroAleatorio = sb.toString();
+                                System.out.println(numeroAleatorio);
+                                for (int i = 1; i < 7; i++) {
                                     System.out.println("intento numero :" + i);
+                                    String numero_ingresado = str.nextLine();
+                                    if (numero_ingresado.matches("[1-8]{1,4}")) {
+                                        historial_intento.add(numero_ingresado);
+
+                                        if (numeroAleatorio.contains(numero_ingresado)) {
+                                            acierto = true;
+                                            System.out.println("historial: ");
+                                            for (int j = 0; j < historial_intento.size(); j++) {
+                                                System.out.println(historial_intento.get(j));
+
+                                            }
+
+                                        }
+                                    } else {
+
+                                        System.out.println("la longitud o el rango son invalidos");
+
+                                    }
 
                                 }
 
