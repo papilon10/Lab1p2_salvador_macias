@@ -80,7 +80,7 @@ public class Lab1p2_salvador_macias {
                         }// fin facil
                         break;
                         case 2: {
-                           while (acierto != true) {
+                            while (acierto != true) {
                                 Random aleatorio = new Random();
                                 StringBuilder sb = new StringBuilder();
 
@@ -118,7 +118,7 @@ public class Lab1p2_salvador_macias {
                         }//fin media
                         break;
                         case 3: {
-                           while (acierto != true) {
+                            while (acierto != true) {
                                 Random aleatorio = new Random();
                                 StringBuilder sb = new StringBuilder();
 
@@ -158,6 +158,12 @@ public class Lab1p2_salvador_macias {
 
                 }//fin case 1
                 case 2: {
+                    System.out.println("ingresa una palabra o frase: ");
+                    String cadena = str.nextLine();
+                    String esPalindromo = esPalindromo(cadena);
+                    System.out.println(esPalindromo);
+                    
+                    
 
                 }//fin case 2
 
@@ -180,5 +186,21 @@ public class Lab1p2_salvador_macias {
                 != true);
 
     }//fin main
+
+    public static String esPalindromo(String cadena) {
+       if (cadena.length() <= 1) {
+            return "es palindroma";
+        }
+        
+        cadena = cadena.toLowerCase();
+        char primerChar = cadena.charAt(0);
+        char ultimoChar = cadena.charAt(cadena.length() - 1);
+        
+        if (primerChar != ultimoChar) {
+            return "no es palindroma";
+        }
+        
+        return esPalindromo(cadena.substring(1, cadena.length() - 1));
+    }
 
 }//fin clase
